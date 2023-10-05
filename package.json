@@ -1,5 +1,5 @@
 {
-  "name": "crypticus",
+  "name": "@exagonsoft/crypticus",
   "version": "1.0.0",
   "description": "Simple Library to perform crypt operations, based on JSON.",
   "main": "index.js",
