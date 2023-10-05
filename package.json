@@ -17,7 +17,7 @@
     "Library"
   ],
   "author": "Alvaro R Martin",
-  "license": "GPL-3.0",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/exagonsoft/Crypticus/issues"
   },
