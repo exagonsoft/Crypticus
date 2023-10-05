@@ -1,0 +1,25 @@
+{
+  "name": "crypticus",
+  "version": "1.0.0",
+  "description": "Simple Library to perform crypt operations, gased on JSON.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/exagonsoft/Crypticus.git"
+  },
+  "keywords": [
+    "JSON",
+    "Crypto",
+    "Security",
+    "Library"
+  ],
+  "author": "Alvaro R Martin",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/exagonsoft/Crypticus/issues"
+  },
+  "homepage": "https://github.com/exagonsoft/Crypticus#readme"
+}
