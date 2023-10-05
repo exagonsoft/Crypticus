@@ -5,11 +5,12 @@
 
 # Crypticus
 
-[![npm version](https://img.shields.io/npm/v/encode.svg)](https://www.npmjs.com/package/crypticus)
+![npm](https://img.shields.io/npm/v/crypticus?style=flat&logo=npm&logoColor=black)
 [![npm downloads](https://img.shields.io/npm/dm/encode.svg)](https://www.npmjs.com/package/crypticus)
-[![Build Status](https://travis-ci.org/yourusername/encode.svg?branch=master)](https://github.com/exagonsoft/Crypticus)
-[![codecov](https://codecov.io/gh/yourusername/encode/branch/master/graph/badge.svg)](https://github.com/exagonsoft/Crypticus)
-[![License](https://img.shields.io/npm/l/encode.svg)](https://github.com/exagonsoft/Crypticus/blob/master/LICENSE)
+![GitHub last commit (branch)](https://img.shields.io/github/last-commit/exagonsoft/Crypticus/main?style=flat&logo=github&logoColor=red)
+![GitHub (Pre-)Release Date](https://img.shields.io/github/release-date-pre/exagonsoft/Crypticus?style=flat&logo=jira&logoColor=yellow)
+![Codecov branch](https://img.shields.io/codecov/c/github/exagonsoft/Crypticus/main?style=flat&logo=github&logoColor=red)
+![GitHub](https://img.shields.io/github/license/exagonsoft/Crypticus?style=flat&logo=apache&logoColor=blue)
 
 Crypticus is a high-performance npm package designed to simplify JSON encoding operations in JavaScript projects. This lightweight library empowers developers to seamlessly encode JavaScript objects into JSON format, facilitating smooth data transmission, storage, and interchange. Encode is engineered for simplicity, speed, and reliability, making it the ideal choice for handling JSON encoding tasks efficiently.
 
