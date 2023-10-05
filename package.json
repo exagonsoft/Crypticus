@@ -1,7 +1,7 @@
 {
   "name": "crypticus",
   "version": "1.0.0",
-  "description": "Simple Library to perform crypt operations, gased on JSON.",
+  "description": "Simple Library to perform crypt operations, based on JSON.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
