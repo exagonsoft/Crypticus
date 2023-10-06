@@ -18,7 +18,7 @@ const { applyXOR, readXOR, generateRandomBase64String } = require("./utils/codex
 
 module.exports.decode = (value, key = null) => {
   let _decodedValue = "";
-  _decodedValue = _decodedValue.slice(10, -10)
+  value = value.slice(10, -10)
 
   try {
     if (key) {
@@ -36,7 +36,7 @@ module.exports.decode = (value, key = null) => {
 module.exports.compare = (value, match, key = null) => {
   let _result = false;
   let _decodedValue = "";
-  _decodedValue = _decodedValue.slice(10, -10)
+  value = value.slice(10, -10)
   try {
     if (key) {
       _decodedValue = readXOR(value, key);

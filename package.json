@@ -1,6 +1,6 @@
 {
   "name": "crypticus",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Simple Library to perform crypt operations, based on JSON.",
   "main": "index.js",
   "scripts": {
