@@ -1,5 +1,3 @@
-const crypto = require("crypto");
-
 module.exports.applyXOR = (value, key) => {
   let result = "";
   for (let i = 0; i < value.length; i++) {
@@ -21,6 +19,14 @@ module.exports.readXOR = (encryptedValue, key) => {
 };
 
 module.exports.generateRandomBase64String = (length) => {
-  const randomBytes = crypto.randomBytes(Math.ceil((3 * length) / 4));
-  return randomBytes.toString("base64").slice(0, length);
+  let result = "";
+  const characters = Array.from(baseChartSet);
+  const charactersLength = characters.length;
+
+  for (let i = 0; i < length; i++) {
+    const randomIndex = Math.floor(Math.random() * charactersLength);
+    result += characters[randomIndex];
+  }
+
+  return result;
 };

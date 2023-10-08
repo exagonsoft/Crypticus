@@ -1,53 +1,62 @@
-const { applyXOR, readXOR, generateRandomBase64String } = require("./utils/codex")
-
- module.exports.encode = (target, key = null) => {
-  let _encodedValue = "";
-
-  try {
-    _encodedValue = btoa(target);
-    if (key) {
-      _encodedValue = applyXOR(_encodedValue, key);
-    }
-    let _extraCodexAfter = generateRandomBase64String(10)
-    let _extraCodexBefore = generateRandomBase64String(10)
-    return _extraCodexAfter + _encodedValue + _extraCodexBefore;
-  } catch (error) {
-    return "Error encoding object.";
+class CustomCrypto {
+  constructor(secretKey) {
+    this.secretKey = secretKey;
   }
-};
 
-module.exports.decode = (value, key = null) => {
-  let _decodedValue = "";
-  value = value.slice(10, -10)
+  // Basic XOR-based encryption with matrix multiplication and random values
+  encrypt(text) {
+    const randomValuesBefore = Array.from({ length: 10 }, () =>
+      Math.floor(Math.random() * 256)
+    );
+    const randomValuesAfter = Array.from({ length: 10 }, () =>
+      Math.floor(Math.random() * 256)
+    );
 
-  try {
-    if (key) {
-      _decodedValue = readXOR(value, key);
+    let encryptedText = "";
+    encryptedText += String.fromCharCode(...randomValuesBefore);
+
+    for (let i = 0; i < text.length; i++) {
+      const textChar = text.charCodeAt(i);
+      const keyChar = this.secretKey.charCodeAt(i % this.secretKey.length);
+      const encryptedChar = (textChar + keyChar) % 256; // Assuming ASCII characters (0-255)
+      encryptedText += String.fromCharCode(encryptedChar);
     }
 
-    _decodedValue = atob(_decodedValue);
-
-    return _decodedValue;
-  } catch (error) {
-    return "Error decoding value.";
+    encryptedText += String.fromCharCode(...randomValuesAfter);
+    return encryptedText;
   }
-};
 
-module.exports.compare = (value, match, key = null) => {
-  let _result = false;
-  let _decodedValue = "";
-  value = value.slice(10, -10)
-  try {
-    if (key) {
-      _decodedValue = readXOR(value, key);
+  // Basic XOR-based decryption with matrix multiplication and random values
+  decrypt(encryptedText) {
+    encryptedText = encryptedText.slice(10, -10); // Remove random values before and after text
+
+    let decryptedText = "";
+    for (let i = 0; i < encryptedText.length; i++) {
+      const encryptedChar = encryptedText.charCodeAt(i);
+      const keyChar = this.secretKey.charCodeAt(i % this.secretKey.length);
+      const decryptedChar = (encryptedChar - keyChar + 256) % 256; // Assuming ASCII characters (0-255)
+      decryptedText += String.fromCharCode(decryptedChar);
     }
-
-    _decodedValue = atob(_decodedValue);
-
-    _result = match === _decodedValue;
-
-    return _result;
-  } catch (error) {
-    return "Error while comparing values.";
+    return decryptedText;
   }
-};
+
+  // Compare two encrypted passwords
+  comparePasswords(encryptedPassword1, encryptedPassword2) {
+    const randomValueLength = 10;
+
+    // Extract encrypted text (excluding random values) from the encrypted passwords
+    const encryptedText1 = encryptedPassword1.slice(
+      randomValueLength,
+      -randomValueLength
+    );
+    const encryptedText2 = encryptedPassword2.slice(
+      randomValueLength,
+      -randomValueLength
+    );
+
+    // Compare the extracted encrypted texts
+    return encryptedText1 === encryptedText2;
+  }
+}
+
+module.exports = CustomCrypto
